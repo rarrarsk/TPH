@@ -29,6 +29,10 @@ Tgraph = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
+START_TEXT = """Hello {},
+I am an under 5MB media or file to telegra.ph link uploader bot.
+Made by @TeamLeech"""
+
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
   msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
