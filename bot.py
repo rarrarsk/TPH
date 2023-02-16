@@ -94,21 +94,7 @@ Hit help button to find out more about how to use me</b>""",
         InlineKeyboardButton('Our Channel', url='http://telegram.me/TeamLeech'),
         InlineKeyboardButton('Source Code', url='http://telegram.me/TeamLeech')
     ]]
-  reply_markup = InlineKeyboardMarkup(buttons)
-  await Tgraph.send_message(
-        chat_id=message.chat.id,
-        text="""<b>Hey there,
-        
-im a telegraph Uploader That Can Upload Photo, Video And Gif
-        
-Simply send me photo, video or gif to upload to Telegra.ph
-        
-Made With Love By @TeamLeech</b>""",
-        reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=message.message_id
-    )
-
+  
 @Tgraph.on_message(filters.command(["help"]))
 async def help(client, message):
   buttons = [[
