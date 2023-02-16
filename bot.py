@@ -80,12 +80,6 @@ async def uploadvid(client, message):
 
 @Tgraph.on_message(filters.command(["start"]))
 async def start(client, message):
-   if message.chat.type == 'private':
-       await sbot.send_message(
-               chat_id=message.chat.id,
-               text="""<b>Hey There, I'm Telegraph  Bot
-I can upload photos or videos to telegraph. Made by  @TeamLeech
-Hit help button to find out more about how to use me</b>""",
   buttons = [[
         InlineKeyboardButton('Help', callback_data='help'),
         InlineKeyboardButton('Close', callback_data='close')
@@ -97,12 +91,6 @@ Hit help button to find out more about how to use me</b>""",
   
 @Tgraph.on_message(filters.command(["help"]))
 async def help(client, message):
-   if message.chat.type == 'private':   
-        await sbot.send_message(
-               chat_id=message.chat.id,
-               text="""<b>Telegraph Bot Help!
-Just send a photo or video less than 5mb file size, I'll upload it to telegraph.
-~ @TeamLeech</b>""",
   buttons = [[
         InlineKeyboardButton('Home', callback_data='home'),
         InlineKeyboardButton('Close', callback_data='close')
