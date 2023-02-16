@@ -29,10 +29,6 @@ Tgraph = Client(
    bot_token=Config.TG_BOT_TOKEN,
 )
 
-START_TEXT = """Hello {},
-I am an under 5MB media or file to telegra.ph link uploader bot.
-Made by @TeamLeech"""
-
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
   msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
@@ -83,7 +79,13 @@ async def uploadvid(client, message):
     await message.reply_text("Size Should Be Less Than 5 mb")
 
 @Tgraph.on_message(filters.command(["start"]))
-async def home(client, message):
+async def start(client, message):
+   if message.chat.type == 'private':
+       await sbot.send_message(
+               chat_id=message.chat.id,
+               text="""<b>Hey There, I'm Telegraph  Bot
+I can upload photos or videos to telegraph. Made by  @TeamLeech
+Hit help button to find out more about how to use me</b>""",
   buttons = [[
         InlineKeyboardButton('Help', callback_data='help'),
         InlineKeyboardButton('Close', callback_data='close')
